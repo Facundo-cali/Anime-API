@@ -1,5 +1,5 @@
 {
-  "name": "ejer_sequelize",
+  "name": "peliculas_api",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.21.6",
-    "sequelize-cli": "^6.4.1"
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
