@@ -27,40 +27,34 @@ function addFavorite(id,e) {
 }
 
 
-
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '8637805064msh29444fb9b11bf23p14737fjsn7df18b3f1fff',
-		'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
+		'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
 	}
 };
 
-fetch(`https://netflix54.p.rapidapi.com/title/details/?ids=${result}&lang=en`, options)
+fetch(`https://anime-db.p.rapidapi.com/anime/by-id/${result}`, options)
 	.then(response => response.json())
-	.then(movie => {
+  	.then(movie => {
 		console.log(movie)
 		container.innerHTML = `	<div class="movie__detail__total ">
-									<h2 class="nombre__prod__detail">${movie[0].details.title}</h2>
-										<img src="${movie[0].details.backgroundImage.url}" alt="pelicula">
-										<p class="">${movie[0].details.currentContextualSynopsis.text}</p>
+									<h2 class="nombre__prod__detail">${movie._id}</h2>
+										<img src="${movie.image}" alt="pelicula">
+										<p class="">${movie.synopsis}</p>
 										<a href="" id="favorite" style="background-color: green"></a>
 										<h3>Genre</h3>
-										<div id="genres" ></div>
+										<div id="genres"></div>
 										<h3>Actors</h3>
-										<div id="actors" ></div>
+										<div id="actors"></div>
 
 									</div>`;//en este forEach recorro el array de generos de la pelicula y despues hago el innerHTML en el div con id "generos"
-										movie[0].details.genres.forEach(gen => {
+										movie.genres.forEach(gen => {
 										genres.innerHTML +=`<li>
 																${gen.name}
 															</li>`
 										})
-										movie[0].details.cast.forEach(act => {
-											actors.innerHTML +=`<li>
-																	${act.name}
-																</li>`
-											})
 											let storage = loadStorage();
 											if (storage.includes(result)) {
 												favorite.innerText = 'Delete from favorites'

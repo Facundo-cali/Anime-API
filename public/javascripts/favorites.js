@@ -10,24 +10,23 @@ function loadStorage() {
     return storage;
 }
 const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '8637805064msh29444fb9b11bf23p14737fjsn7df18b3f1fff',
-        'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
-    }
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '8637805064msh29444fb9b11bf23p14737fjsn7df18b3f1fff',
+		'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
+	}
 };
 
 let storage = loadStorage()
 storage.forEach(id => {
-    fetch(`https://netflix54.p.rapidapi.com/title/details/?ids=${id}&lang=en`, options)
-        .then(response => response.json())
-        .then(response => {
-        console.log(response);
+    fetch(`https://anime-db.p.rapidapi.com/anime/by-id/${id}`, options)
+    .then(response => response.json())
+      .then(movie => {
         todas_container.innerHTML += `<article class="pelicula_item"> 
-                                          <a href=detail/${response[0].details.id}>
-                                            <img class="imagen" src="${response[0].details.backgroundImage.url}" alt="img">
+                                          <a href=detail/${movie._id}>
+                                            <img class="imagen" src="${movie.image}" alt="img">
                                             <div class="titulo">
-                                              <h2>${response[0].details.title}</h2>
+                                              <h2>${movie.title}</h2>
                                             </div>
                                           </a>
                                         </article>`

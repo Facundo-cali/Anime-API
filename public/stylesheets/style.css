@@ -77,6 +77,7 @@ body {
   border-color: #a6a6a5;
   border-style: solid;
   border-radius: 10px;
+  text-align: center;
 }
 
 .titulo{
@@ -97,6 +98,10 @@ body {
   border-radius: 20px;
   max-width: 100%;
   max-height: 100%;
+}
+
+.filtro{
+  display: none;
 }
 
 
