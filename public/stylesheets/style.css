@@ -2,32 +2,31 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+  
 }
 a {
   color: inherit;
 }
 /*========------HEADER================--*/
 .header_container{
-  display: grid;
-  grid-template-rows: 4fr 1fr ;
   align-items: center;
   border-style:solid;
   border-color: #a6a6a5;
   background-color: aliceblue;
   border-radius: 10px;
-  
 }
 .logo_menu{
   display: grid;
   grid-template-columns: 1fr 5fr;
 }
 .logo{
-  max-width: 100%;
-  max-height: 100%;
+  margin: auto;
+  width: 200px;
+  height: 200px;
 }
 .menu{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
 }
 .menu .nav{
   display: grid;
@@ -58,17 +57,17 @@ a {
 /*================--FIN HEADER========-----*/
 body {
   background-color: rgb(168, 55, 40);
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 
 .todas_container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: aliceblue;
   border-radius: 10px;
-  padding: 5% 5% 5% 5%;
+  padding: 2% 2% 2% 2%;
   border-style: solid;
   gap: 20px;
 }
@@ -103,6 +102,7 @@ body {
 
 /*==========--detalle de producto========-----*/
 .movie__detail {
+  margin: 30px auto;
   background-color: #111111;
   max-width: 1024px;
   display: block;
@@ -161,24 +161,12 @@ body {
 }
 /*========------Fin detalle del producto================*/
 
-
-/*========------Crear pelicula================*/
-.form_container{
-  gap: 5px;
-  margin: 1%;
-  padding: 10px;
-  display: grid;
-  text-align: center;
-  border-style:solid;
-  border-color: #a6a6a5;
-  background-color: aliceblue;
-  font-size: large;
-  border-radius: 10px;
-}
-/*========------Fin crear pelicula================*/
-
-
 /*====== Media-Queries ======*/
+@media (max-width: 1080px) {
+  .todas_container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media (max-width: 768px) {
   .todas_container {

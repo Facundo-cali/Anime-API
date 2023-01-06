@@ -1,0 +1,80 @@
+const container = document.querySelector('.movie__detail');
+var allUrl =  window.location.href
+var result = window.location.href.split('/').reverse()[0]
+
+
+function loadStorage() {
+    let storage = localStorage.getItem('favorites')// si el usuario nunca habia entrado devuelve null
+    if (storage == null) { //si no tenia favoritos, creamos el array que guarda los favoritos, pero este se crea como un string, asique en el else debemos transformarlo a numero con JSON.parse.
+      storage = [];
+    }else{
+      storage = JSON.parse(storage)
+    }
+    return storage;
+}
+
+function addFavorite(id,e) {
+	let storage = loadStorage();
+	if (!storage.includes(id)) {// si el id no esta dentro de el array de storage, lo agrega y el boton de add cambia a remove.
+		let newStorage = JSON.stringify([...storage,id]);
+		localStorage.setItem('favorites',newStorage);
+		e.target.innerText = 'Delete from favorites'
+	}else{
+		storage = storage.filter(idMovie => idMovie != id)
+		localStorage.setItem('favorites', JSON.stringify(storage));
+		e.target.innerText = 'Add to favorites'
+	}
+}
+
+
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '8637805064msh29444fb9b11bf23p14737fjsn7df18b3f1fff',
+		'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
+	}
+};
+
+fetch(`https://netflix54.p.rapidapi.com/title/details/?ids=${result}&lang=en`, options)
+	.then(response => response.json())
+	.then(movie => {
+		console.log(movie)
+		container.innerHTML = `	<div class="movie__detail__total ">
+									<h2 class="nombre__prod__detail">${movie[0].details.title}</h2>
+										<img src="${movie[0].details.backgroundImage.url}" alt="pelicula">
+										<p class="">${movie[0].details.currentContextualSynopsis.text}</p>
+										<a href="" id="favorite" style="background-color: green"></a>
+										<h3>Genre</h3>
+										<div id="genres" ></div>
+										<h3>Actors</h3>
+										<div id="actors" ></div>
+
+									</div>`;//en este forEach recorro el array de generos de la pelicula y despues hago el innerHTML en el div con id "generos"
+										movie[0].details.genres.forEach(gen => {
+										genres.innerHTML +=`<li>
+																${gen.name}
+															</li>`
+										})
+										movie[0].details.cast.forEach(act => {
+											actors.innerHTML +=`<li>
+																	${act.name}
+																</li>`
+											})
+											let storage = loadStorage();
+											if (storage.includes(result)) {
+												favorite.innerText = 'Delete from favorites'
+											}else{
+												favorite.innerText = 'Add to favorites'
+											}
+	const addButton = document.querySelector('#favorite');
+
+	addButton.addEventListener('click', function (e) {
+		e.preventDefault();
+		addFavorite(result,e);
+	})
+	});
+
+
+
+

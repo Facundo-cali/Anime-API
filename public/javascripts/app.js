@@ -6,18 +6,18 @@ const options = {
 		'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
 	}
 };
-
-fetch('https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en', options)
+fetch(`https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en`, options)
 	.then(response => response.json())
 	.then(response => {
     console.log(response);
     response.titles.forEach(movie => {
-      todas_container.innerHTML += `<article class="pelicula_item">
-                                      <img class="imagen" src="${movie.jawSummary.backgroundImage.url}" alt="img">
-                                      <div class="titulo">
-                                        <h2>${movie.jawSummary.title}</h2>
-                                      </div>
+      todas_container.innerHTML += `<article class="pelicula_item"> 
+                                      <a href=detail/${movie.summary.id}>
+                                        <img class="imagen" src="${movie.jawSummary.backgroundImage.url}" alt="img">
+                                        <div class="titulo">
+                                          <h2>${movie.jawSummary.title}</h2>
+                                        </div>
+                                      </a>
                                     </article>`
-    });
   })
-	.catch(err => console.error(err));
+});
