@@ -80,6 +80,10 @@ body {
   text-align: center;
 }
 
+.des{
+
+}
+
 .titulo{
   font-size: 20px;
   padding: 10px;
@@ -123,7 +127,7 @@ body {
 }
 
 .movie__detail img{
-  width: 100%;
+  width: 50%;
   border-radius: 3% 3% 0% 0%;
 }
 .nombre__prod__detail{

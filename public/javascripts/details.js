@@ -42,17 +42,14 @@ fetch(`https://anime-db.p.rapidapi.com/anime/by-id/${result}`, options)
 		container.innerHTML = `	<div class="movie__detail__total ">
 									<h2 class="nombre__prod__detail">${movie._id}</h2>
 										<img src="${movie.image}" alt="pelicula">
-										<p class="">${movie.synopsis}</p>
-										<a href="" id="favorite" style="background-color: green"></a>
-										<h3>Genre</h3>
-										<div id="genres"></div>
-										<h3>Actors</h3>
-										<div id="actors"></div>
-
+										<p class="descripcion__prod__detail">${movie.synopsis}</p>
+										<a class="descripcion__prod__detail" href="" id="favorite" style="background-color: green"></a>
+										<h3 class="descripcion__prod__detail" >Genre</h3>
+										<div class="descripcion__prod__detail" id="genres"></div>
 									</div>`;//en este forEach recorro el array de generos de la pelicula y despues hago el innerHTML en el div con id "generos"
 										movie.genres.forEach(gen => {
 										genres.innerHTML +=`<li>
-																${gen.name}
+																${gen}
 															</li>`
 										})
 											let storage = loadStorage();
