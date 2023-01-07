@@ -40,7 +40,7 @@ fetch(`https://anime-db.p.rapidapi.com/anime/by-id/${result}`, options)
   	.then(movie => {
 		console.log(movie)
 		container.innerHTML = `	<div class="movie__detail__total ">
-									<h2 class="nombre__prod__detail">${movie._id}</h2>
+									<h2 class="nombre__prod__detail">${movie.title}</h2>
 										<img src="${movie.image}" alt="pelicula">
 										<p class="descripcion__prod__detail">${movie.synopsis}</p>
 										<a class="descripcion__prod__detail" href="" id="favorite" style="background-color: green"></a>
