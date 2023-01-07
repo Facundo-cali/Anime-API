@@ -12,13 +12,13 @@ fetch('https://anime-db.p.rapidapi.com/anime?page=1&size=30', options)
   .then(response => {
     console.log(response);
     response.data.forEach(movie => {
-      todas_container.innerHTML += `<a href=detail/${movie._id}>
-                                        <article class="pelicula_item"> 
+      todas_container.innerHTML += `<article class="pelicula_item">
+                                        <a href=detail/${movie._id}>
                                         <img class="imagen" src="${movie.image}" alt="img">
                                         <div class="titulo">
-                                          <h2>${movie.title}</h2>
+                                        <h2>${movie.title}</h2>
                                         </div>
-                                    </article>
-                                    </a>`
+                                        </a>
+                                    </article>`
   })
 })
