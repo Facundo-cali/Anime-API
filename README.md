@@ -1,4 +1,4 @@
-# peliculas_whit_api
+# ANIME PAGE (WITH API)
 Mini-Project where I use an api to obtain several anime titles, where I have a search engine and I can add titles to favorites (I can also remove them from favorites)
 
 PREVIEW:
