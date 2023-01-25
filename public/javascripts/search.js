@@ -8,6 +8,5 @@ document.addEventListener("keyup", e=>{
             }
             
         })
-    } 
-    
+    }   
 })
