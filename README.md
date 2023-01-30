@@ -1,6 +1,8 @@
 # ANIME PAGE (WITH API)
 Mini-Project where I use an api to obtain several anime titles, where I have a search engine and I can add titles to favorites (I can also remove them from favorites)
 
+LINK DEPLOY: https://anime-api-30dy.onrender.com
+
 PREVIEW:
 ![captures_chrome-capture-2023-0-25](https://user-images.githubusercontent.com/83016257/214660153-18305160-a7e7-4d0b-95ab-4a59e2abcaf3.png)
 ![captures_chrome-capture-2023-0-25 (1)](https://user-images.githubusercontent.com/83016257/214660165-b97eae33-e460-4f54-8a5d-c4ed6f2b2eb1.png)
